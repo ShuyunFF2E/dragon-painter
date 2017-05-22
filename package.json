@@ -22,7 +22,6 @@
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",
-    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-istanbul": "^4.1.1",
     "babel-plugin-lodash": "^3.2.11",
@@ -39,7 +38,7 @@
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.0",
     "eslint": "^3.19.0",
-    "eslint-config-shuyun": "^2.1.0",
+    "eslint-config-shuyun-vue": "^2.1.0",
     "eslint-friendly-formatter": "^2.0.7",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-html": "^2.0.0",
@@ -86,6 +85,12 @@
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
+  },
+  "eslintConfig": {
+    "extends": "shuyun-vue",
+    "plugins": [
+      "html"
+    ]
   },
   "browserslist": [
     "> 1%",
