@@ -1,9 +1,7 @@
 {
-  "name": "dragon-bone",
+  "name": "dragon-painter",
   "version": "1.0.0",
-  "description": "dragon bone system",
-  "author": "Shuyun FED",
-  "private": true,
+  "description": "dragon painter",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
@@ -96,5 +94,6 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "license": "MIT"
 }
