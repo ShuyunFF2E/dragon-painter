@@ -19,7 +19,7 @@ import 'element-ui/lib/theme-default/index.css';
 
 import PainterView from './components/PainterView';
 import PainterTree from './components/painter-tree';
-import PainterProperty from './components/PainterProperty';
+import PainterProperty from './components/painter-property';
 
 Vue.use(ElementUI);
 
