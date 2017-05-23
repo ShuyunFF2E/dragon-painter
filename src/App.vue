@@ -1,14 +1,36 @@
 <template>
 	<div id="app">
-		<img src="./assets/logo.png">
-		<router-view></router-view>
+    <el-row>
+			<el-col :span="18">
+				<painter-view />
+			</el-col>
+			<el-col :span="6">
+				<painter-tree />
+				<painter-property />
+			</el-col>
+    </el-row>
 	</div>
 </template>
 
 <script>
-	export default {
-		name: 'app'
-	};
+import Vue from 'vue';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-default/index.css';
+
+import PainterView from './components/PainterView';
+import PainterTree from './components/PainterTree';
+import PainterProperty from './components/PainterProperty';
+
+Vue.use(ElementUI);
+
+export default {
+	name: 'app',
+	components: {
+		PainterView,
+		PainterTree,
+		PainterProperty
+	}
+};
 </script>
 
 <style>
