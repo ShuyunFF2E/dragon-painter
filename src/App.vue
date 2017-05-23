@@ -18,7 +18,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 
 import PainterView from './components/PainterView';
-import PainterTree from './components/PainterTree';
+import PainterTree from './components/painter-tree';
 import PainterProperty from './components/PainterProperty';
 
 Vue.use(ElementUI);
