@@ -1,11 +1,11 @@
 <template>
 	<div id="app">
-    <el-row>
-			<el-col :span="18">
+    <el-row type="flex" class="container">
+      <el-col :span="5" class="column"><painter-tree /></el-col>
+			<el-col :span="13" class="column">
 				<painter-view />
 			</el-col>
-			<el-col :span="6">
-				<painter-tree />
+			<el-col :span="6" class="column">
 				<painter-property />
 			</el-col>
     </el-row>
@@ -34,12 +34,18 @@ export default {
 </script>
 
 <style>
-	#app {
-		font-family: 'Avenir', Helvetica, Arial, sans-serif;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		text-align: center;
-		color: #2c3e50;
-		margin-top: 60px;
-	}
+html, body {
+	height: 100%;
+}
+body {
+	margin: 0;
+}
+#app {
+	height: 100%;
+}
+#app > .container {
+	height: 100%;
+}
+#app > .container > .column:nth-child(1) {
+}
 </style>
