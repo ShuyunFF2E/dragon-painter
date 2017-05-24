@@ -33,5 +33,10 @@ export default {
 				}
 			]
 		};
+	},
+	methods: {
+		nodeClickHandler(...args) {
+			console.log(args); // eslint-disable-line
+		}
 	}
 };

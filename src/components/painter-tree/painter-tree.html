@@ -1,3 +1,8 @@
 <div class="painter-tree">
-	<el-tree :data="data" class="tree"></el-tree>
+	<el-tree
+		:data="data"
+		:highlight-current="true"
+		:expand-on-click-node="false"
+		@node-click="nodeClickHandler"
+		class="tree"></el-tree>
 </div>
