@@ -2,5 +2,8 @@ import template from './index.html';
 
 export default {
 	name: 'PainterView',
-	template
+	template,
+	props: {
+		component: Object
+	}
 };
