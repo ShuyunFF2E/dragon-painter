@@ -1,14 +1,14 @@
 <template>
 	<div id="app">
-    <el-row type="flex" class="container">
-      <el-col :span="5" class="column"><painter-tree /></el-col>
-			<el-col :span="13" class="column">
+		<el-row type="flex" class="container">
+		<el-col :span="5" class="column"><painter-tree /></el-col>
+			<el-col :span="19" class="column">
 				<painter-view :page-config="pageConfig" />
 			</el-col>
-			<el-col :span="6" class="column">
-				<painter-property :component="activeComponent" />
-			</el-col>
-    </el-row>
+		</el-row>
+		<aside class="component-editor-container">
+			<painter-property :component="activeComponent" />
+		</aside>
 	</div>
 </template>
 
@@ -17,7 +17,7 @@ import Vue from 'vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 
-import PainterView from './components/PainterView';
+import PainterView from './components/painter-view';
 import PainterTree from './components/painter-tree';
 import PainterProperty from './components/painter-property';
 
@@ -56,6 +56,19 @@ body {
 #app > .container {
 	height: 100%;
 }
-#app > .container > .column:nth-child(1) {
+#app > .container > .column:nth-child(2) {
+	margin-right:400px;
+	padding:0 10px;
+}
+
+.component-editor-container{
+	position:fixed;
+	right:0;
+	top:0;
+	bottom:0;
+	width:400px;
+	z-index:100;
+	box-shadow: -1px 1px 0 #ddd;
+	background-color: #f9f9f9;
 }
 </style>
