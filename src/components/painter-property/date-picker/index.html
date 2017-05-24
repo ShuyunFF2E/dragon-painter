@@ -1,0 +1,48 @@
+<div class="component-editor component-editor-date-picker">
+	<h4>日期选择器</h4>
+	<el-form ref="form" :model="form" label-position="top">
+		<el-form-item label="为空时显示的提示信息">
+			<el-input v-model="form.placeholder" placeholder="提示信息"></el-input>
+		</el-form-item>
+		<el-form-item label="表单数据对象">
+			<el-input v-model="form.vModel" placeholder="表单数据对象"></el-input>
+		</el-form-item>
+
+		<!-- 控件类型 -->
+		<el-form-item label="日期选择器类型">
+			<el-select v-model="form.type" placeholder="请选择日期选择器类型">
+				<el-option label="日期" value="date"></el-option>
+				<el-option label="日期范围" value="daterange"></el-option>
+				<el-option label="日期时间" value="datetime"></el-option>
+				<el-option label="日期时间范围" value="datetimerange"></el-option>
+				<el-option label="年" value="year"></el-option>
+				<el-option label="月" value="month"></el-option>
+				<el-option label="周" value="week"></el-option>
+			</el-select>
+		</el-form-item>
+
+		<!--是否显示清除按钮-->
+		<el-form-item label="是否显示清除按钮">
+			<el-select v-model="form.clearable" placeholder="是否显示清除按钮">
+				<el-option label="是" :value="true"></el-option>
+				<el-option label="否" :value="false"></el-option>
+			</el-select>
+		</el-form-item>
+
+		<!--默认值-->
+		<el-form-item label="默认值">
+			<el-select v-model="form.defaultValueOpts.type" placeholder="请选择默认值类型">
+				<el-option label="无默认值" value="none"></el-option>
+				<el-option label="固定时间" value="fixed"></el-option>
+				<el-option label="基于当前日期（当天第零秒）偏移" value="absolute"></el-option>
+				<el-option label="基于当前日期&时间偏移" value="relative"></el-option>
+			</el-select>
+
+			<el-date-picker v-if="form.defaultValueOpts.type==='fixed'" :type="form.type" v-model="form.defaultValueOpts.value" placeholder="请选择固定的默认时间值"></el-date-picker>
+			<el-input-number v-if="form.defaultValueOpts.type==='absolute'" v-model="form.defaultValueOpts.offset" placeholder="基于当前日期的偏移量（单位秒）"
+			 :controls="false" :min="0"></el-input-number>
+			<el-input-number v-if="form.defaultValueOpts.type==='relative'" v-model="form.defaultValueOpts.offset" placeholder="基于当前时间的偏移量（单位秒）"
+			 :controls="false" :min="0"></el-input-number>
+		</el-form-item>
+	</el-form>
+</div>

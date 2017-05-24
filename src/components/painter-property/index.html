@@ -1,1 +1,11 @@
-<div>PainterProperty</div>
+<section class="property-editor">
+	<h3>组件编辑</h3>
+
+	<form-component-editor v-if="component.component==='ElForm'" :component="component"></form-component-editor>
+
+	<form-item-component-editor v-if="component.component==='ElFormItem'" :component="component"></form-item-component-editor>
+
+	<input-component-editor v-if="component.component==='ElInput'" :component="component"></input-component-editor>
+
+	<date-picker-component-editor v-if="component.component==='ElDatePicker'" :component="component"></date-picker-component-editor>
+</section>

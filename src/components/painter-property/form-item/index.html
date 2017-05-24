@@ -1,0 +1,27 @@
+<div class="component-editor component-editor-form-item">
+	<h4>表单域</h4>
+	<el-form ref="form" :model="form" label-position="top">
+		<el-form-item label="表单域 model 字段（prop）">
+			<el-input v-model="form.prop" placeholder="表单域 model 字段"></el-input>
+		</el-form-item>
+		<el-form-item label="标签文本（label）">
+			<el-input v-model="form.label" placeholder="标签文本"></el-input>
+		</el-form-item>
+		<!--必填属性请在rules中设置-->
+		<!--<el-form-item label="是否必填（required）">
+			<el-select v-model="form.required" placeholder="是否必填">
+				<el-option label="是" :value="true"></el-option>
+				<el-option label="否" :value="false"></el-option>
+			</el-select>
+		</el-form-item>-->
+		<el-form-item label="表单域验证错误信息（error）">
+			<el-input v-model="form.error" placeholder="表单域验证错误信息"></el-input>
+		</el-form-item>
+		<el-form-item label="表单域标签的宽度（label-width）">
+			<el-input-number v-model="form.labelWidth" :controls="false" :min="0"></el-input-number>
+		</el-form-item>
+		<el-form-item label="表单验证规则(rules)">
+			<el-input v-model="form.rules" type="textarea" placeholder="表单验证规则" :rows="3"></el-input>
+		</el-form-item>
+	</el-form>
+</div>

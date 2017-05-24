@@ -4,6 +4,10 @@ export default {
 	name: 'PainterView',
 	template,
 	props: {
-		component: Object
+		pageConfig: Object
+	},
+	created() {
+		/* eslint no-console: "off" */
+		// console.log(this.pageConfig);
 	}
 };

@@ -1,10 +1,18 @@
 <section>
 	<h3>PainterView section</h3>
 	<div>
-		<el-form label-width="80px">
-			<el-form-item :label="component.attrs.labelName">
-				<el-input :placeholder="component.attrs.placeholder"></el-input>
-			</el-form-item>
-		</el-form>
+		<template v-for="component in pageConfig.children">
+			<!-- 表单组件 -->
+			<el-form v-if="component.component==='ElForm'" :inline="true" label-width="80px">
+				<template v-for="subComponent in component.children">
+					<el-form-item :label="subComponent.attrs.label">
+						<template v-for="leafComponent in subComponent.children">
+							<el-input v-if="leafComponent.component==='ElInput'" :placeholder="leafComponent.attrs.placeholder"></el-input>
+							<el-date-picker v-if="leafComponent.component==='ElDatePicker'" :type="leafComponent.attrs.type" :placeholder="leafComponent.attrs.placeholder"></el-date-picker>
+						</template>
+					</el-form-item>
+				</template>
+			</el-form>
+		</template>
 	</div>
 </section>
