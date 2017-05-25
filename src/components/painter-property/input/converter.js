@@ -2,11 +2,12 @@
  * @Author: Picker
  * @Date: 2017-05-24 16:39:08
  * @Last Modified by: Picker
- * @Last Modified time: 2017-05-25 14:37:19
+ * @Last Modified time: 2017-05-25 18:46:29
  */
 
 import component from 'element-ui/lib/input';
-import { getDefaultAttrsFromProps, resumeNodeAttrs } from '../utils';
+import { PROPS_MAPPING } from './constants';
+import { getDefaultAttrsFromProps, mergePropsMapping } from '../utils';
 
 /**
  * convert original Input node info to a full component Model.
@@ -14,20 +15,13 @@ import { getDefaultAttrsFromProps, resumeNodeAttrs } from '../utils';
  */
 function convertNodeToModel(node) {
 
-	const attrs = {
-		...getDefaultAttrsFromProps(component.props),
-		...resumeNodeAttrs(node.attrs),
-		autosizeOpts: {
-			// auto,fixed,autoWithLimit
-			type: 'auto',
-			rows: 3,
-			minRows: 2,
-			maxRows: 5
-		}
-	};
+	const defaultProps = getDefaultAttrsFromProps(component.props);
 
-	if (!attrs.size) {
-		attrs.size = 'normal';
+	const attrs = mergePropsMapping(defaultProps, PROPS_MAPPING);
+
+	// autosize 属性默认为false
+	if (attrs.autosize.value === false) {
+		attrs.autosize.value = '$false';
 	}
 
 	const model = {

@@ -1,10 +1,28 @@
 function getBaseData(type) {
 	if (type === Boolean) {
-		return false;
+		return {
+			type: 'Boolean',
+			required: false,
+			value: undefined
+		};
 	} else if (type === String) {
-		return '';
+		return {
+			type: 'String',
+			required: false,
+			value: undefined
+		};
 	} else if (type === Number) {
-		return 0;
+		return {
+			type: 'Number',
+			required: false,
+			value: undefined
+		};
+	} else if (type === Object) {
+		return {
+			type: 'Object',
+			required: false,
+			value: undefined
+		};
 	}
 
 	return undefined;
@@ -23,11 +41,29 @@ export function getDefaultAttrsFromProps(props = {}) {
 		}
 
 		const value = props[key];
+		const valueType = Object.prototype.toString.call(value);
+		// console.log(valueType);
 
-		if (Object.prototype.toString.call(value) === '[object Object]') {
-			attrs[key] = value.hasOwnProperty('default') ? value.default : getBaseData(value.type);
-		} else if (Object.prototype.toString.call(value) === '[object Array]') {
-			attrs[key] = '';
+
+		if (valueType === '[object Object]') {
+			// attrs[key] = value.hasOwnProperty('default') ? value.default : getBaseData(value.type);
+			attrs[key] = {
+				required: false,
+				...value,
+				value: value.hasOwnProperty('default') ? value.default : undefined
+			};
+		} else if (valueType === '[object Array]') {
+			attrs[key] = {
+				type: 'String',
+				required: false,
+				value: undefined
+			};
+		} else if (value === Function) {
+			attrs[key] = {
+				type: 'Function',
+				required: false,
+				value: undefined
+			};
 		} else {
 			attrs[key] = getBaseData(value);
 		}
@@ -56,4 +92,20 @@ export function resumeNodeAttrs(attrs) {
 	}
 
 	return newAttrs;
+}
+
+/**
+ * 将组件的扩展属性合并到属性数据中
+ * @param {Object} props 组件的属性
+ * @param {Object} mappings 组件的扩展属性
+ */
+export function mergePropsMapping(props, mappings) {
+	for (const prop in mappings) {
+		if (mappings.hasOwnProperty(prop)) {
+			let element = mappings[prop];
+
+			element = Object.assign(element, props[prop] || { title: prop });
+		}
+	}
+	return mappings;
 }

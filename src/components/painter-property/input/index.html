@@ -1,68 +1,29 @@
-<div class="component-editor component-editor-input">
+<section class="component-editor component-editor-input">
 	<h4>输入框</h4>
-	<el-form ref="form" :model="form" label-position="top">
-		<el-form-item label="表单数据对象" :required="true">
-			<el-input v-model="form.vModel" placeholder="e.g. name"></el-input>
-		</el-form-item>
-		<el-form-item label="为空时显示的提示信息">
-			<el-input v-model="form.placeholder" placeholder="e.g. 活动名称"></el-input>
-		</el-form-item>
+	<div class="component-editor-context">
+		<el-form ref="form" :model="form" label-position="top">
 
-		<el-form-item label="输入框尾部图标">
-			<el-input v-model="form.icon" placeholder="e.g. search"></el-input>
-		</el-form-item>
+			<template v-for="(attr,key) in form">
+				<!--普通输入框-->
+				<!--||(attr.type==='String'&&!attr.editor)-->
+				<el-form-item v-if="attr.editor==='INPUT'" :label="attr.title" :required="attr.required">
+					<el-input v-model="attr.value" :placeholder="attr.placeholder"></el-input>
+				</el-form-item>
 
-		<!--最小输入长度建议由rules控制-->
-		<!--<el-form-item label="最小输入长度">
-			<el-input-number v-model="form.minlength" :min="0" :controls="false"></el-input-number>
-		</el-form-item>-->
-		<!--<el-form-item label="输入长度限制" class="input-length-setting-box">
-			<el-input v-model.number="form.minlength" class="width-120px" placeholder="不填表示不限制"></el-input>
-			<span class="separator">至</span>
-			<el-input v-model.number="form.maxlength" class="width-120px" placeholder="不填表示不限制"></el-input>
-		</el-form-item>-->
+				<!--下拉框-->
+				<el-form-item v-if="attr.editor==='SELECT'" :label="attr.title" :required="attr.required">
+					<el-select v-model="attr.value" :placeholder="attr.placeholder">
+						<template v-for="opt in attr.options">
+							<el-option :label="opt.name" :value="opt.value"></el-option>
+						</template>
+					</el-select>
+				</el-form-item>
 
-		<el-form-item label="输入长度限制" class="input-length-setting-box">
-			<template slot="label">
-				<span>输入长度限制</span>
-				<span class="attr-desc">（0 为不限制）</span>
+				<!--函数输入框-->
+				<el-form-item v-if="attr.editor==='TEXTAREA'" :label="attr.title" :required="attr.required">
+					<el-input v-model="attr.value" :placeholder="attr.placeholder" type="textarea" :autosize="attr.autosize"></el-input>
+				</el-form-item>
 			</template>
-			<el-input-number v-model="form.maxlength" class="width-120px" :controls="false" :min="0"></el-input-number>
-		</el-form-item>
-
-		<el-form-item label="输入框类型">
-			<el-select v-model="form.type" placeholder="输入框类型" class="width-120px">
-				<el-option label="普通输入框" value="text"></el-option>
-				<el-option label="多行输入框" value="textarea"></el-option>
-			</el-select>
-			<el-select v-if="form.type==='text'" v-model="form.size" class="width-120px" placeholder="输入框尺寸">
-				<el-option label="normal" value="normal"></el-option>
-				<el-option label="large" value="large"></el-option>
-				<el-option label="small" value="small"></el-option>
-				<el-option label="mini" value="mini"></el-option>
-			</el-select>
-		</el-form-item>
-
-		<el-form-item v-if="form.type==='text'" label="输入框slot">
-			<el-input v-model="form.slot" type="textarea" placeholder="前置/后置/both" :autosize="{minRows:2,maxRows:5}" resize="none"></el-input>
-		</el-form-item>
-
-		<el-form-item v-if="form.type==='textarea'" label="自适应内容高度">
-			<el-select v-model="form.autosizeOpts.type" placeholder="自适应内容高度" class="width-120px">
-				<el-option label="自适应" value="auto"></el-option>
-				<el-option label="固定行数" value="fixed"></el-option>
-				<el-option label="限制自适应" value="autoWithLimit"></el-option>
-			</el-select>
-			<span v-if="form.autosizeOpts.type==='fixed'" class="fixed-autosize-setting-box">
-				<el-input-number v-model="form.autosizeOpts.rows" :min="0" class="width-120px"></el-input-number>
-				行
-			</span>
-		</el-form-item>
-
-		<el-form-item v-if="form.autosizeOpts.type==='autoWithLimit'" label="输入框行数限制（0为不限制）" class="limit-autosize-setting-box">
-			<el-input-number v-model="form.autosizeOpts.minRows" size="small" :min="1" :max="10" class="width-100px"></el-input-number>
-			<span class="separator">至</span>
-			<el-input-number v-model="form.autosizeOpts.maxRows" size="small" :min="1" :max="10" class="width-100px"></el-input-number>
-		</el-form-item>
-	</el-form>
-</div>
+		</el-form>
+	</div>
+</section>
