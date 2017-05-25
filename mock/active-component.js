@@ -1,27 +1,22 @@
 // Form Component
-// export default {
+// import formConverter from '@/components/painter-property/form/converter';
+// export default formConverter.convertNodeToModel({
 // 	component: 'ElForm',
 // 	attrs: {
-// 		inline: true,
-// 		labelPosition: 'right'
 // 	}
-// };
+// });
 
 // FormItem Component
-// export default {
+// import formItemConverter from '@/components/painter-property/form-item/converter';
+// export default formItemConverter.convertNodeToModel({
 // 	component: 'ElFormItem',
 // 	attrs: {
-// 		prop: '',
-// 		label: '',
-// 		required: false,
-// 		error: '',
-// 		labelWidth: 0,
-// 		rules: ''
 // 	}
-// };
+// });
 
-import inputConverter from '@/components/painter-property/input/converter';
+
 // Input Component
+import inputConverter from '@/components/painter-property/input/converter';
 export default inputConverter.convertNodeToModel({
 	component: 'ElInput',
 	attrs: {}

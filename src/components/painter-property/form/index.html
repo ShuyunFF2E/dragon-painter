@@ -5,10 +5,10 @@
 			<el-input v-model="form.name" placeholder="表单名称（仅显示用）"></el-input>
 		</el-form-item>-->
 		<el-form-item label="表单唯一标识">
-			<el-input v-model="form.ref" placeholder="表单唯一标识（变量名格式）"></el-input>
+			<el-input v-model="form.ref" placeholder="e.g. queryForm（变量名格式）"></el-input>
 		</el-form-item>
 		<el-form-item label="表单数据对象">
-			<el-input v-model="form.model" placeholder="表单数据对象"></el-input>
+			<el-input v-model="form.model" placeholder="e.g. query"></el-input>
 		</el-form-item>
 		<el-form-item label="是否为行内表单模式">
 			<el-select v-model="form.inline" placeholder="是否为行内表单模式">
@@ -17,14 +17,14 @@
 			</el-select>
 		</el-form-item>
 		<el-form-item label="表单域标签的位置">
-			<el-select v-model="form.labelPosition" placeholder="表单域标签的位置">
+			<el-select v-model="form.labelPosition" placeholder="e.g. 右对齐（默认）">
 				<el-option label="左对齐" value="left"></el-option>
-				<el-option label="右对齐（默认）" value="right"></el-option>
+				<el-option label="右对齐" value="right"></el-option>
 				<el-option label="顶部对齐" value="top"></el-option>
 			</el-select>
 		</el-form-item>
 		<el-form-item label="表单域标签的宽度">
-			<el-input-number v-model="form.labelWidth" :controls="false" :min="0"></el-input-number>
+			<el-input v-model="form.labelWidth" placeholder="e.g. 100px"></el-input>
 		</el-form-item>
 	</el-form>
 </div>

@@ -68,7 +68,7 @@ body {
 	bottom:0;
 	width:400px;
 	z-index:100;
-	box-shadow: -1px 1px 0 #ddd;
+	box-shadow: -1px 0px 0 #ddd;
 	background-color: #f9f9f9;
 }
 </style>

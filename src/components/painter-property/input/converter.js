@@ -2,8 +2,11 @@
  * @Author: Picker
  * @Date: 2017-05-24 16:39:08
  * @Last Modified by: Picker
- * @Last Modified time: 2017-05-24 17:09:03
+ * @Last Modified time: 2017-05-25 14:37:19
  */
+
+import component from 'element-ui/lib/input';
+import { getDefaultAttrsFromProps, resumeNodeAttrs } from '../utils';
 
 /**
  * convert original Input node info to a full component Model.
@@ -12,24 +15,20 @@
 function convertNodeToModel(node) {
 
 	const attrs = {
-		type: 'text',
-		placeholder: '',
-		vModel: '',
-		size: 'normal',
-		icon: '',
-		disabled: undefined,
-		maxlength: undefined,
-		minlength: undefined,
-		rows: 3,
+		...getDefaultAttrsFromProps(component.props),
+		...resumeNodeAttrs(node.attrs),
 		autosizeOpts: {
 			// auto,fixed,autoWithLimit
 			type: 'auto',
 			rows: 3,
 			minRows: 2,
 			maxRows: 5
-		},
-		...node.attrs
+		}
 	};
+
+	if (!attrs.size) {
+		attrs.size = 'normal';
+	}
 
 	const model = {
 		component: node.component,
