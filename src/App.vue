@@ -1,8 +1,8 @@
 <template>
 	<div id="app">
 		<el-row type="flex" class="container">
-		<el-col :span="5" class="column"><painter-tree /></el-col>
-			<el-col :span="19" class="column">
+			<el-col :span="6" class="column"><painter-tree /></el-col>
+			<el-col :span="18" class="column">
 				<painter-view :page-config="pageConfig" />
 			</el-col>
 		</el-row>

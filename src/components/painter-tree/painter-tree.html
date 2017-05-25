@@ -1,8 +1,11 @@
 <div class="painter-tree">
+	<h3>组件树</h3>
 	<el-tree
 		:data="data"
+		:default-expand-all="true"
 		:highlight-current="true"
 		:expand-on-click-node="false"
+		:render-content="renderContent"
 		@node-click="nodeClickHandler"
 		class="tree"></el-tree>
 </div>
