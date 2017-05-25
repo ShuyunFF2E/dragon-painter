@@ -93,7 +93,10 @@
     "extends": "shuyun-vue",
     "plugins": [
       "html"
-    ]
+    ],
+    "rules": {
+      "no-console": "off"
+    }
   },
   "browserslist": [
     "> 1%",
