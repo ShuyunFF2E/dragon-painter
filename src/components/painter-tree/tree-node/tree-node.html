@@ -3,8 +3,11 @@
 		<span>{{ node.label }}</span>
 	</span>
 	<span style="position: absolute;right: 10px;">
-		<el-button icon="plus" size="mini"
-				@click.stop="append()"></el-button>
+		<el-popover
+				placement="right">
+			<el-button icon="plus" size="mini" slot="reference" @click.stop=""></el-button>
+			<slot name="component-selector"></slot>
+		</el-popover>
 		<el-button icon="delete" size="mini"
 				@click.stop="remove()"></el-button>
 	</span>
