@@ -95,7 +95,7 @@
       "html"
     ],
     "rules": {
-      "no-console": "off"
+      "no-console": "warn"
     }
   },
   "browserslist": [
