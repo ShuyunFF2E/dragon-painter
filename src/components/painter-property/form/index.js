@@ -1,6 +1,6 @@
-import './index.scss';
+// import './index.scss';
 
-import template from './index.html';
+import template from './../editor.html';
 
 export default {
 	name: 'FormComponentEditor',
@@ -12,6 +12,7 @@ export default {
 
 	data() {
 		return {
+			name: '表单',
 			form: this.component.attrs
 		};
 	}

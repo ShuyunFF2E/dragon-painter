@@ -2,7 +2,7 @@
  * @Author: Picker
  * @Date: 2017-05-25 18:11:14
  * @Last Modified by: Picker
- * @Last Modified time: 2017-05-25 18:49:10
+ * @Last Modified time: 2017-05-26 11:19:32
  */
 
 
@@ -71,12 +71,12 @@ export const PROPS_MAPPING = {
 	},
 	disabled: {
 		title: '是否禁用',
-		editor: 'INPUT',
+		editor: 'BOOLEAN',
 		placeholder: 'e.g. $true'
 	},
 	readonly: {
 		title: '是否只读',
-		editor: 'INPUT',
+		editor: 'BOOLEAN',
 		placeholder: 'e.g. $true/$false'
 	}
 };

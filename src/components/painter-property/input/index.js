@@ -1,6 +1,6 @@
-import './index.scss';
+// import './index.scss';
 
-import template from './index.html';
+import template from './../editor.html';
 
 export default {
 	name: 'InputComponentEditor',
@@ -15,15 +15,8 @@ export default {
 	},
 
 	data() {
-		// return {
-		// 	form: {
-		// 		labelName: this.labelName,
-		// 		placeholder: this.placeholder,
-		// 		vModel: this.vModel
-		// 	}
-		// };
-
 		return {
+			name: '输入框',
 			form: this.component.attrs
 		};
 	}
