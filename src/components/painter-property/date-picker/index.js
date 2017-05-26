@@ -1,6 +1,6 @@
 import './index.scss';
 
-import template from './index.html';
+import template from './../editor.html';
 
 export default {
 	name: 'DatePickerComponentEditor',
@@ -13,6 +13,7 @@ export default {
 	data() {
 
 		return {
+			name: '日期组件',
 			form: this.component.attrs
 		};
 	}

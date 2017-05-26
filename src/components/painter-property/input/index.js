@@ -7,10 +7,6 @@ export default {
 	template,
 
 	props: {
-		// labelName: String,
-		// placeholder: String,
-		// vModel: String
-
 		component: Object
 	},
 

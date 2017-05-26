@@ -104,7 +104,15 @@ export function mergePropsMapping(props, mappings) {
 		if (mappings.hasOwnProperty(prop)) {
 			let element = mappings[prop];
 
-			element = Object.assign(element, props[prop] || { title: prop });
+			element = Object.assign(element, props[prop]);
+
+			if (element.title === undefined) {
+				element.title = prop;
+			}
+
+			if (element.value === undefined) {
+				element.value = element.default;
+			}
 		}
 	}
 	return mappings;

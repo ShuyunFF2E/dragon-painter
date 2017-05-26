@@ -1,14 +1,14 @@
 // Form Component
-// import formConverter from '@/components/painter-property/form/converter';
-// export default formConverter.convertNodeToModel({
-// 	component: 'ElForm',
-// 	attrs: {
-// 	}
-// });
+import converter from '@/components/painter-property/form/transformer';
+export default converter.convertNodeToModel({
+	component: 'ElForm',
+	attrs: {
+	}
+});
 
 // FormItem Component
-// import formItemConverter from '@/components/painter-property/form-item/converter';
-// export default formItemConverter.convertNodeToModel({
+// import converter from '@/components/painter-property/form-item/transformer';
+// export default converter.convertNodeToModel({
 // 	component: 'ElFormItem',
 // 	attrs: {
 // 	}
@@ -16,14 +16,15 @@
 
 
 // Input Component
-import inputConverter from '@/components/painter-property/input/converter';
-export default inputConverter.convertNodeToModel({
-	component: 'ElInput',
-	attrs: {}
-});
+// import converter from '@/components/painter-property/input/transformer';
+// export default converter.convertNodeToModel({
+// 	component: 'ElInput',
+// 	attrs: {}
+// });
 
 // DatePicker Component
-// export default {
+// import converter from '@/components/painter-property/date-picker/transformer';
+// export default converter.convertNodeToModel({
 // 	component: 'ElDatePicker',
 // 	attrs: {
 // 		placeholder: '',
@@ -32,9 +33,9 @@ export default inputConverter.convertNodeToModel({
 // 		clearable: true,
 // 		defaultValueOpts: {
 // 			type: 'none',
-// 			value:'',
-// 			offset:0
+// 			value: '',
+// 			offset: 0
 // 		},
 // 		defaultValue: ''
 // 	}
-// };
+// });

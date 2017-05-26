@@ -2,7 +2,7 @@
  * @Author: Picker
  * @Date: 2017-05-25 18:11:14
  * @Last Modified by: Picker
- * @Last Modified time: 2017-05-26 11:19:32
+ * @Last Modified time: 2017-05-26 16:23:25
  */
 
 
@@ -34,49 +34,55 @@ export const PROPS_MAPPING = {
 		title: '输入框尺寸 (text only)',
 		editor: 'SELECT',
 		options: [
-			{ name: '正常大小', value: undefined },
-			{ name: '偏大', value: 'large' },
-			{ name: '偏小', value: 'small' },
-			{ name: '迷你', value: 'mini' }]
+			{ title: '正常大小' },
+			{ title: '偏大', value: 'large' },
+			{ title: '偏小', value: 'small' },
+			{ title: '迷你', value: 'mini' }]
 	},
 	resize: {
 		title: '控制是否能被用户缩放 (textarea only)',
 		editor: 'SELECT',
 		options: [
-			{ name: '不允许缩放', value: 'none' },
-			{ name: '允许缩放', value: 'both' },
-			{ name: '仅允许水平缩放', value: 'horizontal' },
-			{ name: '仅允许垂直缩放', value: 'vertical' }
-		]
+			{ title: '不允许缩放', value: 'none' },
+			{ title: '允许缩放', value: 'both' },
+			{ title: '仅允许水平缩放', value: 'horizontal' },
+			{ title: '仅允许垂直缩放', value: 'vertical' }
+		],
+		default: 'none'
 	},
 	rows: {
 		title: '输入框行数 (textarea only)',
-		editor: 'INPUT',
+		editor: 'NUMBER',
 		placeholder: 'e.g. 2'
 	},
 	autosize: {
 		title: '自适应内容高度 (textarea only)',
-		editor: 'INPUT',
+		editor: 'BOOLEAN_PLUS',
+		plus: '',
 		/* eslint no-template-curly-in-string: "off" */
-		placeholder: 'e.g. $true/$false/${ minRows: 2, maxRows: 5 }'
+		plusPlaceholder: 'e.g. ${ minRows: 2, maxRows: 5 }',
+		default: '$false'
+	},
+	disabled: {
+		title: '是否禁用',
+		editor: 'BOOLEAN_PLUS',
+		plus: '',
+		plusPlaceholder: 'e.g. $!query.isActive',
+		default: '$false'
+	},
+	readonly: {
+		title: '是否只读',
+		editor: 'BOOLEAN',
+		placeholder: 'e.g. $true/$false',
+		default: '$false'
 	},
 	onIconClick: {
 		title: '点击 Input 内的图标的钩子函数 (icon only)',
-		editor: 'TEXTAREA',
+		editor: 'FUNCTION',
 		placeholder: 'e.g. \nfunction() {\n    console.log(123);\n }',
 		autosize: {
 			minRows: 2,
 			maxRows: 5
 		}
-	},
-	disabled: {
-		title: '是否禁用',
-		editor: 'BOOLEAN',
-		placeholder: 'e.g. $true'
-	},
-	readonly: {
-		title: '是否只读',
-		editor: 'BOOLEAN',
-		placeholder: 'e.g. $true/$false'
 	}
 };
