@@ -2,14 +2,14 @@
  * @Author: Picker
  * @Date: 2017-05-25 10:49:16
  * @Last Modified by: Picker
- * @Last Modified time: 2017-05-26 16:46:17
+ * @Last Modified time: 2017-05-26 21:55:35
  */
 
 import component from 'element-ui/lib/form-item';
 import { PROPS_MAPPING } from './constants';
 import { getDefaultAttrsFromProps, mergePropsMapping } from '../utils';
 
-function convertNodeToModel(node) {
+function transformNodeToModel(node) {
 	const defaultProps = getDefaultAttrsFromProps(component.props);
 
 	const attrs = mergePropsMapping(defaultProps, PROPS_MAPPING);
@@ -26,5 +26,5 @@ function convertNodeToModel(node) {
 
 
 export default {
-	convertNodeToModel
+	transformNodeToModel
 };

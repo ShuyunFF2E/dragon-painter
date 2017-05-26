@@ -2,21 +2,21 @@
  * @Author: Picker
  * @Date: 2017-05-26 17:07:14
  * @Last Modified by: Picker
- * @Last Modified time: 2017-05-26 17:49:28
+ * @Last Modified time: 2017-05-26 21:55:13
  */
 
-import formConverter from '@/components/painter-property/form/transformer';
-import formItemConverter from '@/components/painter-property/form-item/transformer';
-import inputConverter from '@/components/painter-property/input/transformer';
-import datePickerConverter from '@/components/painter-property/date-picker/transformer';
+import formTransformer from '@/components/painter-property/form/transformer';
+import formItemTransformer from '@/components/painter-property/form-item/transformer';
+import inputTransformer from '@/components/painter-property/input/transformer';
+import datePickerTransformer from '@/components/painter-property/date-picker/transformer';
 
 
 // 组件-组件转换器 对照表
 const componentTransformerMap = {
-	ElForm: formConverter,
-	ElFormItem: formItemConverter,
-	ElInput: inputConverter,
-	ElDatePicker: datePickerConverter
+	ElForm: formTransformer,
+	ElFormItem: formItemTransformer,
+	ElInput: inputTransformer,
+	ElDatePicker: datePickerTransformer
 };
 
 function transformNodeConfigToModel(node) {
@@ -24,7 +24,10 @@ function transformNodeConfigToModel(node) {
 		node.children = node.children.map(subNode => transformNodeConfigToModel(subNode));
 	}
 
-	return componentTransformerMap[node.component] || node;
+	// 获取当前组件类型的数据转换器
+	const transformer = componentTransformerMap[node.component];
+
+	return transformer ? transformer.transformNodeToModel(node) : node;
 }
 
 /**

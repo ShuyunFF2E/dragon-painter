@@ -1,14 +1,14 @@
 // Form Component
-import converter from '@/components/painter-property/form/transformer';
-export default converter.convertNodeToModel({
+import transformer from '@/components/painter-property/form/transformer';
+export default transformer.transformNodeToModel({
 	component: 'ElForm',
 	attrs: {
 	}
 });
 
 // FormItem Component
-// import converter from '@/components/painter-property/form-item/transformer';
-// export default converter.convertNodeToModel({
+// import transformer from '@/components/painter-property/form-item/transformer';
+// export default transformer.transformNodeToModel({
 // 	component: 'ElFormItem',
 // 	attrs: {
 // 	}
@@ -16,15 +16,15 @@ export default converter.convertNodeToModel({
 
 
 // Input Component
-// import converter from '@/components/painter-property/input/transformer';
-// export default converter.convertNodeToModel({
+// import transformer from '@/components/painter-property/input/transformer';
+// export default transformer.transformNodeToModel({
 // 	component: 'ElInput',
 // 	attrs: {}
 // });
 
 // DatePicker Component
-// import converter from '@/components/painter-property/date-picker/transformer';
-// export default converter.convertNodeToModel({
+// import transformer from '@/components/painter-property/date-picker/transformer';
+// export default transformer.transformNodeToModel({
 // 	component: 'ElDatePicker',
 // 	attrs: {
 // 		placeholder: '',
