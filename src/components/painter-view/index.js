@@ -1,10 +1,11 @@
-import template from './index.html';
+import './painter-view.scss';
+import template from './painter-view.html';
 
 export default {
 	name: 'PainterView',
 	template,
 	props: {
-		pageConfig: Object
+		pageConfig: Array
 	},
 	created() {
 		/* eslint no-console: "off" */

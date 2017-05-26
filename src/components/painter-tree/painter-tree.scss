@@ -9,6 +9,10 @@
 
 	> .tree {
 		flex: 1;
+		overflow: scroll;
 		margin-bottom: 10px;
+		.el-tree-node__content {
+			position: relative;
+		}
 	}
 }
