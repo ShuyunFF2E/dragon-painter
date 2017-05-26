@@ -1,7 +1,7 @@
 <div class="painter-view">
 	<h3>PainterView section</h3>
 	<div>
-		<template v-for="component in pageConfig.children">
+		<template v-for="component in pageConfig[0].children">
 			<!-- 表单组件 -->
 			<el-form v-if="component.component==='ElForm'" :inline="true" label-width="80px">
 				<template v-for="subComponent in component.children">

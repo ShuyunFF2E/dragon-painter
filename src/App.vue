@@ -22,8 +22,13 @@ import PainterTree from './components/painter-tree';
 import PainterProperty from './components/painter-property';
 
 // TODO:以下两个数据为测试使用数据
-import defaultConfig from '../mock/config';
+import mockConfig from '../mock/config';
 import activeComponent from '../mock/active-component';
+
+import { transformConfigToModel } from '@/utils/transformer';
+
+const pageConfig = transformConfigToModel(mockConfig);
+console.log(pageConfig);
 
 Vue.use(ElementUI);
 
@@ -36,7 +41,7 @@ export default {
 	},
 	data() {
 		return {
-			pageConfig: defaultConfig,
+			pageConfig,
 			activeComponent
 		};
 	}
