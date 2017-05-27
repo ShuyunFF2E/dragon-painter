@@ -3,6 +3,9 @@ import template from './component-selector.html';
 export default {
 	name: 'ComponentSelector',
 	template,
+	props: {
+		select: Function
+	},
 	data() {
 		return {
 			value: null,
@@ -13,5 +16,7 @@ export default {
 				{ component: 'ElButton' }
 			]
 		};
+	},
+	methods: {
 	}
 };

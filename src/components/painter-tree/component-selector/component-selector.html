@@ -1,4 +1,7 @@
-<el-select v-model="value" placeholder="请选择">
+<el-select
+		v-model="value"
+		@change="select"
+		placeholder="请选择">
 	<el-option
 			v-for="component in components"
 			:key="component.component"

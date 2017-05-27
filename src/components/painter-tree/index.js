@@ -1,3 +1,5 @@
+import { v4 } from 'uuid';
+
 import './painter-tree.scss';
 import template from './painter-tree.html';
 import TreeNode from './tree-node';
@@ -24,8 +26,20 @@ export default {
 		renderContent(h, { node, data, store }) {
 			return (
 				<TreeNode node={node} data={data} store={store}>
-					<ComponentSelector slot="component-selector"></ComponentSelector>
+					<ComponentSelector slot="component-selector"
+							select={component => this.addChild(component, node)}>
+					</ComponentSelector>
 				</TreeNode>
+			);
+		},
+
+		addChild(component, node) {
+			node.store.append(
+				{
+					id: v4(),
+					component
+				},
+				node.data
 			);
 		},
 
