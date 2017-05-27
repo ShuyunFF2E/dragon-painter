@@ -29,6 +29,7 @@ function getBaseData(type) {
 }
 
 /**
+ * TODO:这个函数只是暂时的，最终以刘奎提供的替代函数为准
  * 根据组件的props属性，获取组件所需默认的数据
  * TODO:如果全部返回undefined会如何？
  * @param {Object} props
@@ -46,7 +47,6 @@ export function getDefaultAttrsFromProps(props = {}) {
 
 
 		if (valueType === '[object Object]') {
-			// attrs[key] = value.hasOwnProperty('default') ? value.default : getBaseData(value.type);
 			attrs[key] = {
 				required: false,
 				...value,
@@ -72,27 +72,6 @@ export function getDefaultAttrsFromProps(props = {}) {
 	return attrs;
 }
 
-
-/**
- * 节点配置中的属性如果为`:`开头，则需要将冒号去掉
- * @param {Object} attrs
- */
-export function resumeNodeAttrs(attrs) {
-	const newAttrs = {};
-
-	for (const attr in attrs) {
-		if (attrs.hasOwnProperty(attr)) {
-			const attrVal = attrs[attr];
-			if (attr.startsWith(':')) {
-				newAttrs[attr.substr(1)] = attrVal;
-			} else {
-				newAttrs[attr] = attrVal;
-			}
-		}
-	}
-
-	return newAttrs;
-}
 
 /**
  * 将组件的扩展属性合并到属性数据中

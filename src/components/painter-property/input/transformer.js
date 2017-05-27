@@ -2,7 +2,7 @@
  * @Author: Picker
  * @Date: 2017-05-24 16:39:08
  * @Last Modified by: Picker
- * @Last Modified time: 2017-05-26 22:05:33
+ * @Last Modified time: 2017-05-27 15:40:36
  */
 
 import component from 'element-ui/lib/input';
@@ -13,7 +13,7 @@ import { getDefaultAttrsFromProps, mergePropsMapping } from '../utils';
  * convert original Input node info to a full component Model.
  * @param node [original Input node info]
  */
-function transformNodeToModel(node) {
+function transformNodeAttrs(node) {
 
 	const defaultProps = getDefaultAttrsFromProps(component.props);
 
@@ -26,16 +26,9 @@ function transformNodeToModel(node) {
 
 	const attrs = mergePropsMapping(defaultProps, PROPS_MAPPING, node.attrs);
 
-	const model = {
-		component: node.component,
-		name: node.name,
-		children: node.children,
-		attrs
-	};
-
-	return model;
+	return attrs;
 }
 
 export default {
-	transformNodeToModel
+	transformNodeAttrs
 };

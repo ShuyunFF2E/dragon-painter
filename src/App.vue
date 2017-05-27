@@ -25,11 +25,12 @@ import PainterProperty from './components/painter-property';
 
 // TODO:以下两个数据为测试使用数据
 import mockConfig from '../mock/config';
+// TODO:activeComponent 将由 painter-tree 设置
 import activeComponent from '../mock/active-component';
 
-import { transformConfigToModel } from '@/utils/transformer';
+import { transformConfigToComponentTree } from '@/utils/transformer';
 
-const pagesConfig = transformConfigToModel(mockConfig);
+const pagesConfig = transformConfigToComponentTree(mockConfig);
 
 Vue.use(ElementUI);
 

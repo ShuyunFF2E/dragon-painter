@@ -2,40 +2,28 @@
  * @Author: Picker
  * @Date: 2017-05-26 17:07:14
  * @Last Modified by: Picker
- * @Last Modified time: 2017-05-26 23:29:45
+ * @Last Modified time: 2017-05-27 15:32:27
  */
 
-import formTransformer from '@/components/painter-property/form/transformer';
-import formItemTransformer from '@/components/painter-property/form-item/transformer';
-import inputTransformer from '@/components/painter-property/input/transformer';
-import datePickerTransformer from '@/components/painter-property/date-picker/transformer';
+import BaseComponent from '@/models/component';
+import componentModelMap from '@/models/component-map';
 
 
-// 组件-组件转换器 对照表
-const componentTransformerMap = {
-	ElForm: formTransformer,
-	ElFormItem: formItemTransformer,
-	ElInput: inputTransformer,
-	ElDatePicker: datePickerTransformer
-};
-
-function transformNodeConfigToModel(node) {
+/**
+ * 将一个完整的页面配置转化为一棵组件树
+ * @param {Object} node 根节点配置信息
+ */
+function transformNodeToModel(node) {
 	if (node.children && node.children.length) {
-		node.children = node.children.map(subNode => transformNodeConfigToModel(subNode));
+		node.children = node.children.map(subNode => transformNodeToModel(subNode));
 	}
 
-	// 获取当前组件类型的数据转换器
-	const transformer = componentTransformerMap[node.component];
+	const Component = componentModelMap[node.component];
 
-	// if (transformer) {
-	// 	console.log(transformer.transformNodeToModel(node));
-	// }
-
-	const newNode = transformer && !node.transformed ? transformer.transformNodeToModel(node) : node;
-	node.transformed = true;
-
-	return newNode;
+	// TODO: 最终每个 node 都会有一个对应的 ComponentModel
+	return Component ? new Component(node) : new BaseComponent(node);
 }
+
 
 /**
  * 将最终配置数据转化为本项目可使用的数据模型
@@ -43,13 +31,7 @@ function transformNodeConfigToModel(node) {
  * 2、为每个组件添加唯一的 ID 属性
  * @param {Object|Array} config 原始节点配置集
  */
-export function transformConfigToModel(config) {
-	return config.map(node => {
-		const v = transformNodeConfigToModel(node);
-		console.log(v);
-
-		return v;
-	});
-	// return config;
+export function transformConfigToComponentTree(config) {
+	return config.map(node => transformNodeToModel(node));
 }
 

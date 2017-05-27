@@ -19,6 +19,6 @@ export default {
 	},
 	created() {
 		/* eslint no-console: "off" */
-		// console.log(this.pageConfig);
+		console.log(this.pageConfig);
 	}
 };
