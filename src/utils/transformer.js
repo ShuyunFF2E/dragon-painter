@@ -2,7 +2,7 @@
  * @Author: Picker
  * @Date: 2017-05-26 17:07:14
  * @Last Modified by: Picker
- * @Last Modified time: 2017-05-27 15:32:27
+ * @Last Modified time: 2017-05-27 15:58:57
  */
 
 import BaseComponent from '@/models/component';
@@ -32,6 +32,8 @@ function transformNodeToModel(node) {
  * @param {Object|Array} config 原始节点配置集
  */
 export function transformConfigToComponentTree(config) {
+
 	return config.map(node => transformNodeToModel(node));
+
 }
 
