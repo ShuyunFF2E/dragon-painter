@@ -2,7 +2,7 @@
  * @Author: Picker
  * @Date: 2017-05-26 17:07:14
  * @Last Modified by: Picker
- * @Last Modified time: 2017-05-26 21:55:13
+ * @Last Modified time: 2017-05-26 23:29:45
  */
 
 import formTransformer from '@/components/painter-property/form/transformer';
@@ -27,7 +27,14 @@ function transformNodeConfigToModel(node) {
 	// 获取当前组件类型的数据转换器
 	const transformer = componentTransformerMap[node.component];
 
-	return transformer ? transformer.transformNodeToModel(node) : node;
+	// if (transformer) {
+	// 	console.log(transformer.transformNodeToModel(node));
+	// }
+
+	const newNode = transformer && !node.transformed ? transformer.transformNodeToModel(node) : node;
+	node.transformed = true;
+
+	return newNode;
 }
 
 /**
@@ -37,7 +44,12 @@ function transformNodeConfigToModel(node) {
  * @param {Object|Array} config 原始节点配置集
  */
 export function transformConfigToModel(config) {
-	config.map(node => transformNodeConfigToModel(node));
-	return config;
+	return config.map(node => {
+		const v = transformNodeConfigToModel(node);
+		console.log(v);
+
+		return v;
+	});
+	// return config;
 }
 

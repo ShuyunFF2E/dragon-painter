@@ -1,9 +1,11 @@
 <template>
 	<div id="app">
 		<el-row type="flex" class="container">
-			<el-col :span="6" class="column"><painter-tree /></el-col>
+			<el-col :span="6" class="column">
+				<painter-tree />
+			</el-col>
 			<el-col :span="18" class="column">
-				<painter-view :page-config="pageConfig" />
+				<painter-view :page-config="pageConfig"></painter-view>
 			</el-col>
 		</el-row>
 		<aside class="component-editor-container">
@@ -27,8 +29,7 @@ import activeComponent from '../mock/active-component';
 
 import { transformConfigToModel } from '@/utils/transformer';
 
-const pageConfig = transformConfigToModel(mockConfig);
-console.log(pageConfig);
+const pagesConfig = transformConfigToModel(mockConfig);
 
 Vue.use(ElementUI);
 
@@ -41,7 +42,7 @@ export default {
 	},
 	data() {
 		return {
-			pageConfig,
+			pageConfig: pagesConfig[0],
 			activeComponent
 		};
 	}

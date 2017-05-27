@@ -15,7 +15,7 @@ export default [
 					{
 						component: 'ElFormItem',
 						attrs: {
-							label: '审批人'
+							label: '审批人名称'
 						},
 						children: [
 							{
@@ -30,7 +30,7 @@ export default [
 					{
 						component: 'ElFormItem',
 						attrs: {
-							label: '地址'
+							label: '详细地址'
 						},
 						children: [
 							{
@@ -45,14 +45,14 @@ export default [
 					{
 						component: 'ElFormItem',
 						attrs: {
-							label: '日期'
+							label: '起始日期'
 						},
 						children: [
 							{
 								component: 'ElDatePicker',
 								attrs: {
 									placeholder: '日期',
-									vModel: 'query.date'
+									vModel: 'query.startDate'
 								}
 							}
 						]
@@ -60,14 +60,14 @@ export default [
 					{
 						component: 'ElFormItem',
 						attrs: {
-							label: '日期'
+							label: '结束日期'
 						},
 						children: [
 							{
-								component: 'ElSelect',
+								component: 'ElDatePicker',
 								attrs: {
 									placeholder: '日期',
-									vModel: 'query.date'
+									vModel: 'query.endDate'
 								}
 							}
 						]

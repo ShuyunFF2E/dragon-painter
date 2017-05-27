@@ -99,21 +99,22 @@ export function resumeNodeAttrs(attrs) {
  * @param {Object} props 组件的属性
  * @param {Object} mappings 组件的扩展属性
  */
-export function mergePropsMapping(props, mappings) {
+export function mergePropsMapping(props, mappings, nodeAttrs = {}) {
+	const newProps = {};
 	for (const prop in mappings) {
 		if (mappings.hasOwnProperty(prop)) {
-			let element = mappings[prop];
 
-			element = Object.assign(element, props[prop]);
+			const element = Object.assign({}, mappings[prop], props[prop]);
 
 			if (element.title === undefined) {
 				element.title = prop;
 			}
 
-			if (element.value === undefined) {
-				element.value = element.default;
-			}
+			element.value = nodeAttrs[prop] || element.default;
+
+			newProps[prop] = element;
 		}
 	}
-	return mappings;
+
+	return newProps;
 }

@@ -5,7 +5,17 @@ export default {
 	name: 'PainterView',
 	template,
 	props: {
-		pageConfig: Array
+		pageConfig: Object
+	},
+	data() {
+		return {
+			query: {
+				name: '',
+				address: '',
+				startDate: '',
+				endDate: new Date()
+			}
+		};
 	},
 	created() {
 		/* eslint no-console: "off" */
