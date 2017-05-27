@@ -1,10 +1,10 @@
 // Form Component
-import transformer from '@/components/painter-property/form/transformer';
-export default {
-	component: 'ElForm',
-	attrs: transformer.transformNodeAttrs({
-	})
-};
+// import transformer from '@/components/painter-property/form/transformer';
+// export default {
+// 	component: 'ElForm',
+// 	attrs: transformer.transformNodeAttrs({
+// 	})
+// };
 
 // FormItem Component
 // import transformer from '@/components/painter-property/form-item/transformer';
@@ -39,3 +39,11 @@ export default {
 // 		defaultValue: ''
 // 	}
 // });
+
+
+import transformer from '@/components/painter-property/button/transformer';
+export default {
+	component: 'ElButton',
+	attrs: transformer.transformNodeAttrs({
+	})
+};

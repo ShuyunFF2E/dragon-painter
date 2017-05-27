@@ -1,7 +1,7 @@
 import template from './../editor.html';
 
 export default {
-	name: 'FormItemComponentEditor',
+	name: 'ButtonComponentEditor',
 	template,
 
 	props: {
@@ -10,7 +10,7 @@ export default {
 
 	data() {
 		return {
-			name: '表单域',
+			name: '按钮',
 			form: this.component.attrs
 		};
 	}

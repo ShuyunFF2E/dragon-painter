@@ -6,6 +6,7 @@ import FormComponentEditor from './form';
 import FormItemComponentEditor from './form-item';
 import InputComponentEditor from './input';
 import DatePickerComponentEditor from './date-picker';
+import ButtonComponentEditor from './button';
 
 export default {
 	name: 'PainterProperty',
@@ -14,7 +15,8 @@ export default {
 		FormComponentEditor,
 		FormItemComponentEditor,
 		InputComponentEditor,
-		DatePickerComponentEditor
+		DatePickerComponentEditor,
+		ButtonComponentEditor
 	},
 
 	props: {

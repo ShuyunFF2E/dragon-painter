@@ -1,5 +1,3 @@
-// import './index.scss';
-
 import template from './../editor.html';
 
 export default {
