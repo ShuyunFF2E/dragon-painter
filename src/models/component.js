@@ -14,7 +14,7 @@ import { v4 } from 'uuid';
 export default class BaseComponent {
 
 	constructor(options) {
-		this.id = v4();
+		this.cid = v4();
 
 		// this.component=options.component;
 		// this.attrs= options.attrs;

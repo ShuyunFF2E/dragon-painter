@@ -7,7 +7,7 @@
 			:highlight-current="true"
 			:expand-on-click-node="false"
 			:render-content="renderContent"
-			@node-click="onNodeClick"
+			@node-click="(data, node) => nodeSelect(data, node.store.data)"
 			node-key="id"
 			class="tree">
 	</el-tree>

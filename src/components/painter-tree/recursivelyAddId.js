@@ -4,7 +4,7 @@ export default function recursivelyAddId(nodes) {
 	const queue = [...nodes];
 	let node;
 	while (node = queue.shift()) { // eslint-disable-line
-		node.id = v4();
+		node.cid = v4();
 		if (node.children) {
 			queue.push(...node.children || []);
 		}
