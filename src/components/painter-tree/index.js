@@ -53,7 +53,7 @@ export default {
 				});
 			};
 			const treeData = node.store.data.map(treeNode => getTreeNodeData(treeNode));
-			this.nodeSelect(treeData);
+			this.nodeSelect(data, treeData);
 		}
 	}
 };

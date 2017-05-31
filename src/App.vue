@@ -43,8 +43,9 @@ export default {
 		};
 	},
 	methods: {
-		onPainterTreeNodeSelect(data) {
-			console.log('当前页面数据:', data);
+		onPainterTreeNodeSelect(nodeData, treeData) {
+			this.activeComponent = nodeData;
+			console.log('当前页面数据:', treeData);
 		}
 	}
 };
