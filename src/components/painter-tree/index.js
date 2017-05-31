@@ -3,7 +3,6 @@ import { v4 } from 'uuid';
 import './painter-tree.scss';
 import template from './painter-tree.html';
 import TreeNode from './tree-node';
-import ComponentSelector from './component-selector';
 
 // TODO: fix the path
 import mockData from '../../../mock/config';
@@ -25,11 +24,11 @@ export default {
 	methods: {
 		renderContent(h, { node, data, store }) {
 			return (
-				<TreeNode node={node} data={data} store={store}>
-					<ComponentSelector slot="component-selector"
-							select={component => this.addChild(component, node)}>
-					</ComponentSelector>
-				</TreeNode>
+				<TreeNode node={node} data={data} store={store} add-child={
+					component => {
+						this.addChild(component, node);
+					}
+				}></TreeNode>
 			);
 		},
 
