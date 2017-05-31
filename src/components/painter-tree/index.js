@@ -11,6 +11,9 @@ import recursivelyAddId from './recursivelyAddId';
 export default {
 	name: 'PainterTree',
 	template,
+	props: {
+		nodeSelect: Function
+	},
 	data() {
 		recursivelyAddId(mockData);
 		return {
@@ -42,8 +45,15 @@ export default {
 			);
 		},
 
-		nodeClickHandler(data, node) {
-			console.log('select:', node);
+		onNodeClick(data, node) {
+			const getTreeNodeData = treeNode => {
+				const { id, children, ...nodeData } = treeNode; // eslint-disable-line no-unused-vars
+				return Object.assign(nodeData, {
+					children: (children || []).map(_treeNode => getTreeNodeData(_treeNode))
+				});
+			};
+			const treeData = node.store.data.map(treeNode => getTreeNodeData(treeNode));
+			this.nodeSelect(treeData);
 		}
 	}
 };

@@ -2,7 +2,7 @@
 	<div id="app">
 		<el-row type="flex" class="container">
 			<el-col :span="6" class="column">
-				<painter-tree />
+				<painter-tree :node-select="onPainterTreeNodeSelect" />
 			</el-col>
 			<el-col :span="18" class="column">
 				<painter-view :page-config="pageConfig"></painter-view>
@@ -41,6 +41,11 @@ export default {
 			pageConfig: pagesConfig[0],
 			activeComponent
 		};
+	},
+	methods: {
+		onPainterTreeNodeSelect(data) {
+			console.log('当前页面数据:', data);
+		}
 	}
 };
 </script>
