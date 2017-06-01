@@ -2,7 +2,7 @@
  * @Author: Picker
  * @Date: 2017-05-27 11:38:40
  * @Last Modified by: Picker
- * @Last Modified time: 2017-05-27 15:39:10
+ * @Last Modified time: 2017-06-01 14:12:31
  */
 
 import BaseComponent from '@/models/component';
@@ -13,6 +13,9 @@ export default class InputComponent extends BaseComponent {
 	constructor(options) {
 
 		super(options);
+
+		this.component = 'ElInput';
+		this.name = this.component;
 
 		this.attrs = transformer.transformNodeAttrs(this);
 	}
