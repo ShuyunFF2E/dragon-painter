@@ -1,3 +1,4 @@
+import components from '@/models/component-map';
 import template from './component-selector.html';
 
 export default {
@@ -9,14 +10,7 @@ export default {
 	data() {
 		return {
 			value: null,
-			components: [
-				{ component: 'ElForm' },
-				{ component: 'ElFormItem' },
-				{ component: 'ElInput' },
-				{ component: 'ElButton' }
-			]
+			components
 		};
-	},
-	methods: {
 	}
 };

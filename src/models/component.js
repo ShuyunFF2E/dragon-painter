@@ -15,6 +15,7 @@ export default class BaseComponent {
 
 	constructor(options) {
 		this.cid = v4();
+		this['@click.native.stop'] = `__onFocus('${this.cid}')`;
 
 		// this.component=options.component;
 		// this.attrs= options.attrs;

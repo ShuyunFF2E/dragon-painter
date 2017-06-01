@@ -27,13 +27,11 @@ export default {
 			node.store.remove(node.data);
 		},
 
-		onComponentSelecotorShown() { },
-
-		select(component) {
-			console.log('Selected ', component);
+		select(Component) {
 			this.showComponentSelector = false;
-			this.addChild(component);
+			this.addChild(new Component());
 		},
+
 		open() {
 			this.showComponentSelector = true;
 		}

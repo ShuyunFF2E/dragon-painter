@@ -1,5 +1,3 @@
-import { v4 } from 'uuid';
-
 import './painter-tree.scss';
 import template from './painter-tree.html';
 import TreeNode from './tree-node';
@@ -36,13 +34,10 @@ export default {
 		},
 
 		addChild(component, node) {
-			node.store.append(
-				{
-					id: v4(),
-					component
-				},
-				node.data
-			);
+			console.log('=> select:', component);
+			const componentDisplayName = component.constructor.name.replace(/Component$/, '');
+			Object.assign(component, { component: componentDisplayName });
+			node.store.append(component, node.data);
 		}
 	}
 };

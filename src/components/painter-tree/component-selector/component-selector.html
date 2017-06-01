@@ -3,8 +3,9 @@
 		@change="select"
 		placeholder="请选择">
 	<el-option
-			v-for="component in components"
-			:key="component.component"
-			:value="component.component">
+			v-for="(component, key) in components"
+			:label="key"
+			:key="key"
+			:value="component">
 	</el-option>
 </el-select>

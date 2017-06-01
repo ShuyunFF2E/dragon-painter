@@ -5,10 +5,9 @@
 <span style="position: absolute;right: 10px;">
 		<el-popover
 				v-model="showComponentSelector"
-				@show="onComponentSelecotorShown"
 				placement="right">
 				<component-selector :select="select"></component-selector>
-				<el-button icon="plus" size="mini" slot="reference"></el-button>
+				<el-button icon="plus" size="mini" slot="reference" @click.stop></el-button>
 		</el-popover>
 		<el-button icon="delete" size="mini"
 				@click.stop="remove()"></el-button>
