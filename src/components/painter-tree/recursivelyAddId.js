@@ -5,7 +5,7 @@ export default function recursivelyAddId(nodes) {
 	let node;
 	while (node = queue.shift()) { // eslint-disable-line no-cond-assign
 		node.cid = v4();
-		node['@click.native.stop'] = `__onFocus('${node.cid}')`;
+		node.attrs['@click.native.stop'] = `__onFocus('${node.cid}')`;
 		if (node.children) {
 			queue.push(...node.children || []);
 		}
