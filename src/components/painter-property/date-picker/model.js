@@ -17,7 +17,7 @@ export default class DatePickerComponent extends BaseComponent {
 		this.component = 'ElDatePicker';
 		this.name = this.component;
 
-		this.attrs = transformer.transformNodeAttrs(this);
+		Object.assign(this.attrs, transformer.transformNodeAttrs(this));
 	}
 
 }

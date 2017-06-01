@@ -17,7 +17,7 @@ export default class InputComponent extends BaseComponent {
 		this.component = 'ElInput';
 		this.name = this.component;
 
-		this.attrs = transformer.transformNodeAttrs(this);
+		Object.assign(this.attrs, transformer.transformNodeAttrs(this));
 	}
 
 }

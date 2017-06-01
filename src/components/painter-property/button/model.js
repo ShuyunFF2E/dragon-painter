@@ -17,7 +17,7 @@ export default class ButtonComponent extends BaseComponent {
 		this.component = 'ElButton';
 		this.name = this.component;
 
-		this.attrs = transformer.transformNodeAttrs(this);
+		Object.assign(this.attrs, transformer.transformNodeAttrs(this));
 	}
 
 }

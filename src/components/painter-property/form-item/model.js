@@ -17,7 +17,7 @@ export default class FormItemComponent extends BaseComponent {
 		this.component = 'ElFormItem';
 		this.name = this.component;
 
-		this.attrs = transformer.transformNodeAttrs(this);
+		Object.assign(this.attrs, transformer.transformNodeAttrs(this));
 	}
 
 }
