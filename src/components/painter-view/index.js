@@ -2,7 +2,7 @@ import './painter-view.scss';
 import template from './painter-view.html';
 
 export default {
-	name: 'PainterView',
+	name: 'Preview',
 	template,
 	props: {
 		pageConfig: Object
