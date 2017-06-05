@@ -2,7 +2,7 @@
 	<div id="app">
 		<el-row type="flex" class="container">
 			<el-col :span="6" class="column">
-				<painter-tree :node-select="onPainterTreeNodeSelect" />
+				<painter-tree :node-select="onPainterTreeNodeSelect" :change="onPainterTreeChange" />
 			</el-col>
 			<el-col :span="18" class="column">
 				<painter-view :page-config="pageConfig"></painter-view>
@@ -45,6 +45,10 @@ export default {
 	methods: {
 		onPainterTreeNodeSelect(nodeData, treeData) {
 			this.activeComponent = nodeData;
+			console.log('当前页面数据:', treeData);
+		},
+
+		onPainterTreeChange(treeData) {
 			console.log('当前页面数据:', treeData);
 		}
 	}

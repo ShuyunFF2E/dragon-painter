@@ -10,7 +10,8 @@ export default {
 	name: 'PainterTree',
 	template,
 	props: {
-		nodeSelect: Function
+		nodeSelect: Function,
+		change: Function
 	},
 	data() {
 		recursivelyAddId(mockData);
@@ -25,19 +26,8 @@ export default {
 	methods: {
 		renderContent(h, { node, data, store }) {
 			return (
-				<TreeNode node={node} data={data} store={store} add-child={
-					component => {
-						this.addChild(component, node);
-					}
-				}></TreeNode>
+				<TreeNode node={node} data={data} store={store} change={this.change}></TreeNode>
 			);
-		},
-
-		addChild(component, node) {
-			console.log('=> select:', component);
-			const componentDisplayName = component.constructor.name.replace(/Component$/, '');
-			Object.assign(component, { component: componentDisplayName });
-			node.store.append(component, node.data);
 		}
 	}
 };

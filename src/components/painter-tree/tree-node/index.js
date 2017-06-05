@@ -9,7 +9,7 @@ export default {
 		node: Object,
 		data: Object,
 		store: Object,
-		addChild: Function
+		change: Function
 	},
 
 	components: {
@@ -25,6 +25,15 @@ export default {
 		remove() {
 			const { node } = this;
 			node.store.remove(node.data);
+			this.change(node.store.data);
+		},
+
+		addChild(component) {
+			const { node } = this;
+			const componentDisplayName = component.constructor.name.replace(/Component$/, '');
+			Object.assign(component, { component: componentDisplayName });
+			node.store.append(component, node.data);
+			this.change(node.store.data);
 		},
 
 		select(Component) {
