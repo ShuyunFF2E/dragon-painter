@@ -40,6 +40,7 @@
     "cross-env": "^4.0.0",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.0",
+    "dragon-pond": "https://github.com/ShuyunFF2E/dragon-pond",
     "eslint": "^3.19.0",
     "eslint-config-shuyun-vue": "^2.1.0",
     "eslint-friendly-formatter": "^2.0.7",
