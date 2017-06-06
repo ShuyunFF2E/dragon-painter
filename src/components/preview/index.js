@@ -23,9 +23,10 @@ export default {
 
 		// 动态组件
 		component() {
+			// compute 不支持收集 异步/回调 中的依赖，所以这里将依赖声明提前
+			const tpl = bone(this.config);
 			return async () => {
 				const ModelClassModule = await import(`@/models/${this.config.model}`);
-				const tpl = bone(this.config);
 				const muscles = muscle(ModelClassModule.default);
 				return {
 					template: tpl,

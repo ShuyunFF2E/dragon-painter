@@ -1,9 +1,10 @@
 <section>
+	<el-button type="primary" @click="save(initProps)">保存</el-button>
 	<h1 :text-content.prop="title"></h1>
 	<div v-for="(config, name) in initProps">
 		<label :for="name" :text-content.prop="name"></label>
 		<el-input
-				:id="name" v-model="config.value" @change="onPropsChange(props)" type="text"
+				:id="name" v-model="config.value" type="text"
 				:placeholder="typeof config.default === 'string'? config.default : JSON.stringify(config.default)">
 		</el-input>
 	</div>

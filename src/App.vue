@@ -10,7 +10,7 @@
 			</el-col>
 		</el-row>
 		<aside class="component-editor-container">
-			<editor :title="activeComponent.component" :initProps="activeComponentProps"></editor>
+			<editor :title="activeComponent.component" :init-props="activeComponentProps" :on-change="onComponentConfigChange"></editor>
 		</aside>
 	</div>
 </template>
@@ -34,19 +34,25 @@
 
 	Vue.use(ElementUI);
 
-	const extractProp = (objectArray, init, prop) =>
+	const findComponent = (componentTree, cid) => {
 
-			objectArray.reduce((acc, component) => {
+		if (componentTree.cid === cid) {
+			return componentTree;
+		}
 
-				acc.push(component);
+		if (Array.isArray(componentTree.children)) {
 
-				if (component[prop]) {
-					extractProp(component[prop], acc, prop);
+			for (const component of componentTree.children) {
+
+				const result = findComponent(component, cid);
+				if (result) {
+					return result;
 				}
+			}
+		}
 
-				return acc;
-
-			}, init);
+		return null;
+	};
 
 	export default {
 		name: 'app',
@@ -71,7 +77,9 @@
 
 			activeComponentProps() {
 
+				// @formatter:off
 				const { component, attrs = {}} = this.activeComponent;
+				// @formatter:on
 
 				const props = propsScanner(ElementUI[component.slice(2)].props);
 
@@ -96,8 +104,13 @@
 			},
 
 			onFocus(cid) {
-				const allComponents = extractProp([this.config], [], 'children');
-				this.activeComponent = allComponents.find(v => v.cid === cid);
+				this.activeComponent = { ...findComponent(this.config, cid) };
+			},
+
+			onComponentConfigChange(newComponentAttrs) {
+				const activeComponent = findComponent(this.config, this.activeComponent.cid);
+				activeComponent.attrs = newComponentAttrs;
+				this.config = { ...this.config };
 			}
 		}
 	};
